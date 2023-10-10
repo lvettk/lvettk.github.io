@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>hexo常用命令</title>
+      <link href="/posts/e621/"/>
+      <url>/posts/e621/</url>
+      
+        <content type="html"><![CDATA[<h1 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot;</span><br></pre></td></tr></table></figure><h1 id="上传部署3连"><a href="#上传部署3连" class="headerlink" title="上传部署3连"></a>上传部署3连</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><h1 id="预览博客-本地运行"><a href="#预览博客-本地运行" class="headerlink" title="预览博客(本地运行)"></a>预览博客(本地运行)</h1><p>通过 <a href="http://localhost:4000/">http://localhost:4000/</a> 访问</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure><h1 id="生成上传后的文件-即github上的所有文件"><a href="#生成上传后的文件-即github上的所有文件" class="headerlink" title="生成上传后的文件(即github上的所有文件)"></a>生成上传后的文件(即github上的所有文件)</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo g</span><br></pre></td></tr></table></figure><p>文件在public里</p><h1 id="删除public文件夹"><a href="#删除public文件夹" class="headerlink" title="删除public文件夹"></a>删除public文件夹</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> Butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo框架下twikoo评论系统本地部署</title>
       <link href="/posts/cbf5/"/>
       <url>/posts/cbf5/</url>
