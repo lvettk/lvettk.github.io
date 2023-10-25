@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何在windows上设置端口转发</title>
+      <link href="/posts/ea69/"/>
+      <url>/posts/ea69/</url>
+      
+        <content type="html"><![CDATA[<h1 id="管理员身份打开终端"><a href="#管理员身份打开终端" class="headerlink" title="管理员身份打开终端"></a>管理员身份打开终端</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=445 listenaddress=127.0.0.1 connectport=新端口 connectaddress=服务器IP地址</span><br></pre></td></tr></table></figure><h1 id="查看端口占用"><a href="#查看端口占用" class="headerlink" title="查看端口占用"></a>查看端口占用</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -aon | findstr &quot;端口号&quot;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSS的基本使用</title>
       <link href="/posts/cffb/"/>
       <url>/posts/cffb/</url>
@@ -190,9 +215,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
-            
             <tag> linux </tag>
+            
+            <tag> hexo </tag>
             
         </tags>
       
@@ -246,9 +271,9 @@
       
         <tags>
             
-            <tag> Butterfly </tag>
-            
             <tag> 博客 </tag>
+            
+            <tag> Butterfly </tag>
             
         </tags>
       

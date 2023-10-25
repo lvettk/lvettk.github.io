@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://cutcutfish.org/posts/ea69/</loc>
+    
+    <lastmod>2023-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://cutcutfish.org/posts/cbf5/</loc>
     
     <lastmod>2023-10-20</lastmod>
@@ -121,7 +130,7 @@
 
   <url>
     <loc>https://cutcutfish.org/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -129,112 +138,119 @@
   
   <url>
     <loc>https://cutcutfish.org/tags/CSS/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/HTML/</loc>
-    <lastmod>2023-10-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://cutcutfish.org/tags/hexo/</loc>
-    <lastmod>2023-10-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://cutcutfish.org/tags/Butterfly/</loc>
-    <lastmod>2023-10-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://cutcutfish.org/tags/Front-matter/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/Markdown/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/QQ%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/linux/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://cutcutfish.org/tags/twikoo/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <loc>https://cutcutfish.org/tags/hexo/</loc>
+    <lastmod>2023-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/tags/Butterfly/</loc>
+    <lastmod>2023-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/tags/Front-matter/</loc>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/vi/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/vim/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/tags/twikoo/</loc>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/kali/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/Aircrack-ng/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/tags/wifi/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/tags/windows/</loc>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -243,28 +259,35 @@
   
   <url>
     <loc>https://cutcutfish.org/categories/HTML/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/categories/linux/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://cutcutfish.org/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2023-10-20</lastmod>
+    <lastmod>2023-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/categories/windows/</loc>
+    <lastmod>2023-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
