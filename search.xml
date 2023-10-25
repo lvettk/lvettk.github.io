@@ -4,11 +4,40 @@
   
     
     <entry>
+      <title>Win10实现非标端口访问公网SMB服务</title>
+      <link href="/posts/64b3/"/>
+      <url>/posts/64b3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>由于Samba使用的445端口被封禁，所以只能通过端口转发将群晖NSA(服务器)的445端口转发到公网的其他端口(以4455为例)，即可通过服务器公网IP+4455端口使用Samba服务</p><p>但是windows使用的Samba协议无法实现非标端口访问</p><h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>在windows本地添加端口转发，将本机IP的445端口转发到服务器IP的4455端口</p><ul><li>具体实现</li></ul><p>打开smb客户端</p><p><img src="https://tucdn.wpon.cn/2023/10/25/a836d917205b3.png"></p><p>关闭server服务(它会占用本地445端口)</p><p><img src="https://tucdn.wpon.cn/2023/10/25/8940b3649cda8.png"></p><p><img src="https://tucdn.wpon.cn/2023/10/25/05b78bb423b02.png"></p><p>右键属性 启动类型 改为禁用 并且 停止运行</p><p>在本地添加端口转发规则</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=445 listenaddress=127.0.0.1 connectport=服务器端口 connectaddress=服务器IP</span><br></pre></td></tr></table></figure><p>检查是否添加成功</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netsh interface portproxy show v4tov4</span><br></pre></td></tr></table></figure><p>重启电脑</p><p>成功</p><h1 id="我遇到的BUG"><a href="#我遇到的BUG" class="headerlink" title="我遇到的BUG"></a>我遇到的BUG</h1><p>每次重启后端口转发就失效了</p><p>但是重新删除添加端口转发规则后就好了</p><h1 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h1><p>写个bat脚本放到windows开机自启目录</p><p>win + R 输入 <code>shell:startup</code></p><p>在启动目录新建<code>smb端口转发.bat</code></p><p>右键编辑</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">powershell -Command &quot;Start-Process cmd -Verb RunAs -ArgumentList &#x27;/c netsh interface portproxy delete v4tov4 listenaddress=127.0.0.1 listenport=445 &amp;&amp; netsh interface portproxy add v4tov4 listenport=445 listenaddress=127.0.0.1 connectport=你的服务器端口 connectaddress=你的服务器IP&#x27;&quot;</span><br></pre></td></tr></table></figure><p>完结撒花</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> windows </tag>
+            
+            <tag> 群晖 </tag>
+            
+            <tag> smb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何在windows上设置端口转发</title>
       <link href="/posts/ea69/"/>
       <url>/posts/ea69/</url>
       
-        <content type="html"><![CDATA[<h1 id="管理员身份打开终端"><a href="#管理员身份打开终端" class="headerlink" title="管理员身份打开终端"></a>管理员身份打开终端</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=445 listenaddress=127.0.0.1 connectport=新端口 connectaddress=服务器IP地址</span><br></pre></td></tr></table></figure><h1 id="查看端口占用"><a href="#查看端口占用" class="headerlink" title="查看端口占用"></a>查看端口占用</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -aon | findstr &quot;端口号&quot;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="管理员身份打开终端"><a href="#管理员身份打开终端" class="headerlink" title="管理员身份打开终端"></a>管理员身份打开终端</h1><p>添加端口转发规则</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=445 listenaddress=127.0.0.1 connectport=新端口 connectaddress=服务器IP</span><br></pre></td></tr></table></figure><p>删除端口转发规则</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netsh interface portproxy delete v4tov4 listenaddress=服务器IP listenport=端口</span><br></pre></td></tr></table></figure><p>查看端口转发规则</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netsh interface portproxy show v4tov4</span><br></pre></td></tr></table></figure><h1 id="查看端口占用"><a href="#查看端口占用" class="headerlink" title="查看端口占用"></a>查看端口占用</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -aon | findstr &quot;端口号&quot;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -215,9 +244,9 @@
       
         <tags>
             
-            <tag> linux </tag>
-            
             <tag> hexo </tag>
+            
+            <tag> linux </tag>
             
         </tags>
       
