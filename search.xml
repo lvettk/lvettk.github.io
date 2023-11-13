@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>pve系统内的虚拟机硬盘直通</title>
+      <link href="/posts/c676/"/>
+      <url>/posts/c676/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>PVE：全称Proxmox Virtual Environment，开源的虚拟化管理平台。它基于Debian Linux操作系统，并集成了KVM和LXC两种虚拟化技术，可以帮助用户快速搭建和管理虚拟化环境。</p><h1 id="查看硬盘编号"><a href="#查看硬盘编号" class="headerlink" title="查看硬盘编号"></a>查看硬盘编号</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls -la /dev/disk/by-id/|grep -v dm|grep -v lvm|grep -v part</span><br></pre></td></tr></table></figure><h1 id="设置硬盘直通"><a href="#设置硬盘直通" class="headerlink" title="设置硬盘直通"></a>设置硬盘直通</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">qm set 虚拟机ID --自定义硬盘号 /dev/disk/by-id/你要直通的硬盘编号</span><br></pre></td></tr></table></figure><p><strong>例子</strong></p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">qm set 100 --sata0 /dev/disk/by-id/ata-HGST_HTS725032A7E630_RC220ACK0KPB2J</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+          <category> pve </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> pve </tag>
+            
+            <tag> 硬盘直通 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Win10实现非标端口访问公网SMB服务</title>
       <link href="/posts/64b3/"/>
       <url>/posts/64b3/</url>
