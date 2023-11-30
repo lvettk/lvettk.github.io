@@ -4,6 +4,67 @@
   
     
     <entry>
+      <title>ftp服务器搭建</title>
+      <link href="/posts/c7f9/"/>
+      <url>/posts/c7f9/</url>
+      
+        <content type="html"><![CDATA[<h1 id="下载安装ftp服务端"><a href="#下载安装ftp服务端" class="headerlink" title="下载安装ftp服务端"></a>下载安装ftp服务端</h1><p>经典的yum安装</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install vsftpd</span><br></pre></td></tr></table></figure><h1 id="启动关闭ftp服务"><a href="#启动关闭ftp服务" class="headerlink" title="启动关闭ftp服务"></a>启动关闭ftp服务</h1><p>启动</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start vsftpd</span><br></pre></td></tr></table></figure><p>关闭</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl stop vsftpd</span><br></pre></td></tr></table></figure><h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>修改完配置文件记得重启ftp服务</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 关闭匿名用户登录</span><br><span class="line">anonymous_enable=NO </span><br><span class="line"></span><br><span class="line"># 使用本地用户登录</span><br><span class="line">local_enable=YES</span><br><span class="line"></span><br><span class="line"># 本地用户FTP访问目录</span><br><span class="line">local_root=/var/ftp/test</span><br><span class="line"></span><br><span class="line"># 允许登陆用户有写权限；属于全局设置，默认值为YES</span><br><span class="line">write_enable=YES</span><br><span class="line"></span><br><span class="line">#创建文件夹后去掉那些权限</span><br><span class="line">local_umask=022</span><br><span class="line"></span><br><span class="line">#登录提示语是否开启</span><br><span class="line">dirmessage_enable=YES</span><br><span class="line"></span><br><span class="line"># 监听IPv4 sockets</span><br><span class="line">listen=YES</span><br><span class="line"></span><br><span class="line"># 关闭监听IPv6 sockets</span><br><span class="line">listen_ipv6=NO</span><br><span class="line"></span><br><span class="line"># userlist_enable=YES 和 userlist_deny=YES ，user_list作为黑名单使用，user_list文件中的用户都被拒绝登录FTP</span><br><span class="line">userlist_enable=YES </span><br><span class="line">userlist_deny=YES </span><br><span class="line">userlist_file=/etc/vsftpd/user_list</span><br><span class="line"></span><br><span class="line"># 全部用户被限制在主目录</span><br><span class="line">chroot_local_user=YES</span><br><span class="line"></span><br><span class="line"># 启用例外用户名单</span><br><span class="line">chroot_list_enable=YES</span><br><span class="line"></span><br><span class="line"># 指定例外用户列表文件，列表中用户不被锁定在主目录。</span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list</span><br><span class="line"></span><br><span class="line"># 启用被动模式</span><br><span class="line">pasv_enable=YES </span><br><span class="line">allow_writeable_chroot=YES</span><br><span class="line"></span><br><span class="line"># 被动模式下FTP服务器IP</span><br><span class="line">pasv_address=192.168.100.20 </span><br><span class="line"></span><br><span class="line"># 被动模式下，数据传输最小端口50000，最大端口51000，例如：50000～51000</span><br><span class="line">pasv_min_port=50000</span><br><span class="line">pasv_max_port=51000</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linxu </tag>
+            
+            <tag> ftp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MapReduce</title>
+      <link href="/posts/fb78/"/>
+      <url>/posts/fb78/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Mapreduce是什么"><a href="#Mapreduce是什么" class="headerlink" title="Mapreduce是什么"></a>Mapreduce是什么</h1><p>MapReduce 是一个分布式运算程序的编程框架，是用户开发“基于 Hadoop 的数据分析<br>应用”的核心框架。</p><p>MapReduce 核心功能是将用户编写的业务逻辑代码和自带默认组件整合成一个完整的<br>分布式运算程序，并发运行在一个 Hadoop 集群上。</p><h1 id="MapReduce编程规范"><a href="#MapReduce编程规范" class="headerlink" title="MapReduce编程规范"></a>MapReduce编程规范</h1><p>用户编写的程序分成三个部分：Mapper、Reducer 和 Driver。</p><p>1．Mapper阶段</p><p>（1）用户自定义的Mapper要继承自己的父类</p><p>（2）Mapper的输入数据是KV对的形式（KV的类型可自定义）</p><p>（3）Mapper中的业务逻辑写在map()方法中</p><p>（4）Mapper的输出数据是KV对的形式（KV的类型可自定义）</p><p>（5）map()方法（MapTask进程）对每一个&lt;K,V&gt;调用一次</p><p>2．Reducer阶段</p><p>（1）用户自定义的Reducer要继承自己的父类</p><p>（2）Reducer的输入数据类型对应Mapper的输出数据类型，也是KV</p><p>（3）Reducer的业务逻辑写在reduce()方法中</p><p>（4）ReduceTask进程对每一组相同k的&lt;k,v&gt;组调用一次reduce()方法</p><p>3．Driver阶段</p><p>相当于YARN集群的客户端，用于提交我们整个程序到YARN集群，提交的是<br>封装了MapReduce程序相关运行参数的job对象</p><h1 id="具体写法"><a href="#具体写法" class="headerlink" title="具体写法"></a>具体写法</h1><p>MapReduce的程一般分为3个类</p><p>map类：将原始数据切割成<code>k,v</code>对</p><p>reduce类：处理map处理好的<code>k,v</code>对</p><p>drive类：设置job的各个参数，并提交job</p><h2 id="Map类"><a href="#Map类" class="headerlink" title="Map类"></a>Map类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mapreduce.wordcount;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.LongWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCountMapper</span> <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;LongWritable, Text, Text, IntWritable&gt;&#123;</span><br><span class="line">    <span class="type">Text</span> <span class="variable">k</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();</span><br><span class="line">    <span class="type">IntWritable</span> <span class="variable">v</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(LongWritable key, Text value, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line"><span class="comment">// 1 获取一行</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">line</span> <span class="operator">=</span> value.toString();</span><br><span class="line"><span class="comment">// 2 切割</span></span><br><span class="line">        String[] words = line.split(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line"><span class="comment">// 3 输出</span></span><br><span class="line">        <span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">            k.set(word);</span><br><span class="line">            context.write(k, v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="Reduce类"><a href="#Reduce类" class="headerlink" title="Reduce类"></a>Reduce类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mapreduce.wordcount;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCountReducer</span> <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text, IntWritable, Text, IntWritable&gt;&#123;</span><br><span class="line">    <span class="type">int</span> sum;</span><br><span class="line">    <span class="type">IntWritable</span> <span class="variable">v</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line"><span class="comment">// 1 累加求和</span></span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (IntWritable count : values) &#123;</span><br><span class="line">            sum += count.get();</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">// 2 输出</span></span><br><span class="line">        v.set(sum);</span><br><span class="line">        context.write(key,v);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="Drive类"><a href="#Drive类" class="headerlink" title="Drive类"></a>Drive类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mapreduce.wordcount;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCountDriver</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException, InterruptedException &#123;</span><br><span class="line"><span class="comment">// 1 获取配置信息以及获取 job 对象</span></span><br><span class="line">        <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">        <span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> Job.getInstance(conf);</span><br><span class="line"><span class="comment">// 2 关联本 Driver 程序的 jar</span></span><br><span class="line">        job.setJarByClass(WordCountDriver.class);</span><br><span class="line"><span class="comment">// 3 关联 Mapper 和 Reducer 的 jar</span></span><br><span class="line">        job.setMapperClass(WordCountMapper.class);</span><br><span class="line">        job.setReducerClass(WordCountReducer.class);</span><br><span class="line"><span class="comment">// 4 设置 Mapper 输出的 kv 类型</span></span><br><span class="line">        job.setMapOutputKeyClass(Text.class);</span><br><span class="line">        job.setMapOutputValueClass(IntWritable.class);</span><br><span class="line"><span class="comment">// 5 设置最终输出 kv 类型</span></span><br><span class="line">        job.setOutputKeyClass(Text.class);</span><br><span class="line">        job.setOutputValueClass(IntWritable.class);</span><br><span class="line"><span class="comment">// 6 设置输入和输出路径</span></span><br><span class="line">        FileInputFormat.setInputPaths(job, <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;F:\\桌面\\hadoop\\笔记\\input&quot;</span>));</span><br><span class="line">        FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;F:\\桌面\\hadoop\\笔记\\out&quot;</span>));</span><br><span class="line"><span class="comment">// 7 提交 job</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> job.waitForCompletion(<span class="literal">true</span>);</span><br><span class="line">        System.exit(result ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="自定义k-v对类型"><a href="#自定义k-v对类型" class="headerlink" title="自定义k,v对类型"></a>自定义k,v对类型</h1><p>当你要使用的value是多个数据，或者你想使用</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>补题记录</title>
+      <link href="/posts/493a/"/>
+      <url>/posts/493a/</url>
+      
+        <content type="html"><![CDATA[<h1 id="codeforce"><a href="#codeforce" class="headerlink" title="codeforce"></a>codeforce</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2023-11-18</span><br><span class="line">Round #909(Div. 3)</span><br><span class="line">AC: 2/7</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> codeforce </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基金笔记</title>
       <link href="/posts/1758/"/>
       <url>/posts/1758/</url>
@@ -31,11 +92,11 @@
     
     
     <entry>
-      <title>从零开始的异世界算法[模板类]</title>
+      <title>从零开始的异世界算法</title>
       <link href="/posts/d57e/"/>
       <url>/posts/d57e/</url>
       
-        <content type="html"><![CDATA[<p>备战2024acm</p><details><summary>呜呜呜</summary><s>我tm杀杀杀</s></details><hr><h1 id="Floyd"><a href="#Floyd" class="headerlink" title="Floyd"></a>Floyd</h1><p><a href="https://www.luogu.com.cn/problem/B3647">B3647 【模板】Floyd </a></p><h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><p><a href="https://www.luogu.com.cn/problem/P3367">P3367 【模板】并查集 </a></p>]]></content>
+        <content type="html"><![CDATA[<p>备战2024acm</p><details><summary>呜呜呜</summary><s>我tm杀杀杀</s></details><hr><h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h1 id="Floyd"><a href="#Floyd" class="headerlink" title="Floyd"></a>Floyd</h1><p><a href="https://www.luogu.com.cn/problem/B3647">B3647 【模板】Floyd </a></p><h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><p><a href="https://www.luogu.com.cn/problem/P3367">P3367 【模板】并查集 </a></p>]]></content>
       
       
       <categories>
