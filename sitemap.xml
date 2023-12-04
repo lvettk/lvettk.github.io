@@ -241,13 +241,6 @@
   </url>
   
   <url>
-    <loc>https://cutcutfish.org/tags/JavaScript/</loc>
-    <lastmod>2023-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://cutcutfish.org/tags/hexo/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -263,6 +256,27 @@
   
   <url>
     <loc>https://cutcutfish.org/tags/Front-matter/</loc>
+    <lastmod>2023-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/tags/JavaScript/</loc>
+    <lastmod>2023-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/tags/hadoop/</loc>
+    <lastmod>2023-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/tags/MapReduce/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -291,20 +305,6 @@
   
   <url>
     <loc>https://cutcutfish.org/tags/linux/</loc>
-    <lastmod>2023-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://cutcutfish.org/tags/hadoop/</loc>
-    <lastmod>2023-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://cutcutfish.org/tags/MapReduce/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -346,14 +346,14 @@
   </url>
   
   <url>
-    <loc>https://cutcutfish.org/tags/html/</loc>
+    <loc>https://cutcutfish.org/tags/twikoo/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://cutcutfish.org/tags/twikoo/</loc>
+    <loc>https://cutcutfish.org/tags/html/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -460,13 +460,6 @@
   </url>
   
   <url>
-    <loc>https://cutcutfish.org/categories/JavaScript/</loc>
-    <lastmod>2023-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://cutcutfish.org/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -474,7 +467,7 @@
   </url>
   
   <url>
-    <loc>https://cutcutfish.org/categories/linux/</loc>
+    <loc>https://cutcutfish.org/categories/JavaScript/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -488,14 +481,14 @@
   </url>
   
   <url>
-    <loc>https://cutcutfish.org/categories/windows/</loc>
+    <loc>https://cutcutfish.org/categories/linux/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://cutcutfish.org/categories/linux/pve/</loc>
+    <loc>https://cutcutfish.org/categories/windows/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -517,6 +510,13 @@
   
   <url>
     <loc>https://cutcutfish.org/categories/%E7%90%86%E8%B4%A2/</loc>
+    <lastmod>2023-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cutcutfish.org/categories/linux/pve/</loc>
     <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
