@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>hexo教程</title>
+      <link href="/posts/9537/"/>
+      <url>/posts/9537/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ftp服务器搭建</title>
       <link href="/posts/c7f9/"/>
       <url>/posts/c7f9/</url>
@@ -537,9 +562,9 @@
       
         <tags>
             
-            <tag> Butterfly </tag>
-            
             <tag> 博客 </tag>
+            
+            <tag> Butterfly </tag>
             
         </tags>
       
