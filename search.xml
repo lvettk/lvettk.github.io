@@ -8,7 +8,7 @@
       <link href="/posts/9537/"/>
       <url>/posts/9537/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="踩得坑"><a href="#踩得坑" class="headerlink" title="踩得坑"></a>踩得坑</h1><p>写博客时自己添加的信息最好写在hexo自建信息下面，不然hexo d到仓库后会有转义问题</p><p>正确的写法：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: hexo教程</span><br><span class="line">abbrlink: &#x27;9537&#x27;</span><br><span class="line">date: 2023-12-27 17:44:04</span><br><span class="line">cover： ...</span><br></pre></td></tr></table></figure><p>错误的写法</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cover： ...</span><br><span class="line">title: hexo教程</span><br><span class="line">abbrlink: &#x27;9537&#x27;</span><br><span class="line">date: 2023-12-27 17:44:04</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>奇怪的转义问题：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cover: /img/cover/12.webp</span><br><span class="line">被编译成了↓</span><br><span class="line">background-image: url(&#x27;/%5Cimg%5Ccover%5C22.webp&#x27;)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
