@@ -278,20 +278,6 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/Markdown/</loc>
-    <lastmod>2023-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.gugugit.com/tags/hadoop/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -306,6 +292,20 @@
   </url>
   
   <url>
+    <loc>https://blog.gugugit.com/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2023-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/Markdown/</loc>
+    <lastmod>2023-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.gugugit.com/tags/QQ%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -314,20 +314,6 @@
   
   <url>
     <loc>https://blog.gugugit.com/tags/linux/</loc>
-    <lastmod>2023-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/linxu/</loc>
-    <lastmod>2023-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/ftp/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -355,6 +341,20 @@
   </url>
   
   <url>
+    <loc>https://blog.gugugit.com/tags/linxu/</loc>
+    <lastmod>2023-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/ftp/</loc>
+    <lastmod>2023-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.gugugit.com/tags/twikoo/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -363,20 +363,6 @@
   
   <url>
     <loc>https://blog.gugugit.com/tags/html/</loc>
-    <lastmod>2023-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/vi/</loc>
-    <lastmod>2023-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/vim/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -397,14 +383,14 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://blog.gugugit.com/tags/vi/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/tags/%E6%A8%A1%E6%9D%BF/</loc>
+    <loc>https://blog.gugugit.com/tags/vim/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -433,6 +419,20 @@
   
   <url>
     <loc>https://blog.gugugit.com/tags/wifi/</loc>
+    <lastmod>2023-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2023-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/%E6%A8%A1%E6%9D%BF/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -504,7 +504,7 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/categories/linux/pve/</loc>
+    <loc>https://blog.gugugit.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -518,14 +518,14 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://blog.gugugit.com/categories/%E7%90%86%E8%B4%A2/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/categories/%E7%90%86%E8%B4%A2/</loc>
+    <loc>https://blog.gugugit.com/categories/linux/pve/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
