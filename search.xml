@@ -4,6 +4,83 @@
   
     
     <entry>
+      <title>jupyterhub安装教程</title>
+      <link href="/posts/6e16/"/>
+      <url>/posts/6e16/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>JupyterHub是一个多用户的Jupyter Notebook服务器，允许多个用户同时使用Jupyter Notebook。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>本次使用conda安装，conda的安装教程<a href="https://blog.gugugit.com/">这里有</a></p><h2 id="安装jupyterhub"><a href="#安装jupyterhub" class="headerlink" title="安装jupyterhub"></a>安装jupyterhub</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">conda install -c conda-forge jupyterhub  </span><br><span class="line">conda install notebook  </span><br></pre></td></tr></table></figure><h2 id="创建新环境并安装内核"><a href="#创建新环境并安装内核" class="headerlink" title="创建新环境并安装内核"></a>创建新环境并安装内核</h2><p>创建环境顺便安装python3.9</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n jupyter python=3.9</span><br><span class="line">conda activate jupyter</span><br><span class="line">conda install -c conda-forge r-base</span><br><span class="line">conda deactivate</span><br></pre></td></tr></table></figure><h2 id="安装ipyparallel"><a href="#安装ipyparallel" class="headerlink" title="安装ipyparallel"></a>安装ipyparallel</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install -n jupyter ipyparallel</span><br></pre></td></tr></table></figure><h2 id="R安装iRkernel"><a href="#R安装iRkernel" class="headerlink" title="R安装iRkernel"></a>R安装iRkernel</h2><p>进入R语言并安装</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R</span><br><span class="line"></span><br><span class="line">install.packages(c(&#x27;repr&#x27;, &#x27;IRdisplay&#x27;, &#x27;IRkernel&#x27;), type = &#x27;source&#x27;,repos= &quot;https://mirrors.tuna.tsinghua.edu.cn/CRAN/&quot;)</span><br><span class="line"></span><br><span class="line">IRkernel::installspec()</span><br><span class="line"></span><br><span class="line">install.packages(&quot;IRkernel&quot;)</span><br><span class="line"></span><br><span class="line">IRkernel::installspec(name = &#x27;ir40&#x27;, displayname = &#x27;R 4.0&#x27;, user = F)</span><br></pre></td></tr></table></figure><h1 id="启动并配置jupyterhub"><a href="#启动并配置jupyterhub" class="headerlink" title="启动并配置jupyterhub"></a>启动并配置jupyterhub</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#找个地方存放jupyterhub的config</span><br><span class="line"></span><br><span class="line">cd /opt</span><br><span class="line"></span><br><span class="line">#创建默认config</span><br><span class="line"></span><br><span class="line">jupyterhub --generate-config</span><br><span class="line"></span><br><span class="line">#配置config</span><br><span class="line"></span><br><span class="line">vim jupyterhub_config.py</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>config改为</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c.Spawner.notebook_dir = &#x27;~&#x27;</span><br><span class="line">c.Spawner.default_url = &#x27;/lab&#x27;</span><br><span class="line">c.Spawner.args = [&#x27;--allow-root&#x27;] </span><br><span class="line"></span><br><span class="line">c.JupyterHub.ip = &#x27;0.0.0.0&#x27;</span><br><span class="line">c.JupyterHub.port = 8000</span><br><span class="line">c.PAMAuthenticator.encoding = &#x27;utf8&#x27;</span><br><span class="line"></span><br><span class="line">#拥有管理员权限的用户</span><br><span class="line">c.Authenticator.admin_users = set([&#x27;xjy&#x27;])</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> anaconda </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> jupyterhub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux安装python教程</title>
+      <link href="/posts/7562/"/>
+      <url>/posts/7562/</url>
+      
+        <content type="html"><![CDATA[<p><strong>以安装python3.9为例，其他版本同理</strong></p><hr><h2 id="安装python3-9"><a href="#安装python3-9" class="headerlink" title="安装python3.9"></a>安装python3.9</h2><p>下载python3.9并编译安装</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz</span><br><span class="line"></span><br><span class="line">tar -xvf Python-3.9.10.tgz</span><br><span class="line"></span><br><span class="line">cd Python-3.9.10  </span><br><span class="line">./configure --prefix=/usr/local/python3</span><br><span class="line"></span><br><span class="line">make  </span><br><span class="line">make altinstall</span><br></pre></td></tr></table></figure><p>添加以下内容到<code>/etc/profile</code>中</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export PATH=&quot;/usr/local/python3/bin:$PATH&quot;</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Anconda的安装与配置</title>
+      <link href="/posts/a76a/"/>
+      <url>/posts/a76a/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Conda是一个开源的包管理系统，它简化了软件包的安装、更新和卸载过程。这对于我们日后的开发工作非常有帮助，特别是在学习Python时。你可能会安装python3，也可能会安装Python2，这时候，多个版本的python之间会出现一些冲突。同时，由于Python有大量的包，没有有效的管理工具很容易导致混乱。因此，Conda的管理功能变得尤为重要。Anaconda和Miniconda都是基于Conda的发行版，它们提供了不同的软件包集合。</p><h1 id="安装miniconda"><a href="#安装miniconda" class="headerlink" title="安装miniconda"></a>安装miniconda</h1><p><a href="https://mirrors.bfsu.edu.cn/anaconda/miniconda/">清华大学镜像站</a></p><p><img src="/img/a76a/1.png"></p><p>下载安装</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda-3.0.0-Linux-x86_64.sh</span><br><span class="line"></span><br><span class="line">bash Miniconda-3.0.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><p><strong>记得更改安装位置，默认装&#x2F;root目录可能有权限问题</strong></p><p><strong>添加环境变量和</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export PATH=&quot;/opt/myconda/bin:$PATH&quot;</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Anconda </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Anconda </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo教程</title>
       <link href="/posts/9537/"/>
       <url>/posts/9537/</url>
