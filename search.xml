@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>琪露诺也能看懂的爬虫教程</title>
+      <link href="/posts/4750/"/>
+      <url>/posts/4750/</url>
+      
+        <content type="html"><![CDATA[<h1 id="先说思路"><a href="#先说思路" class="headerlink" title="先说思路"></a>先说思路</h1><p>用requests库下载网页文本文件-&gt;用BeautifulSoup筛选出有用的信息-&gt;保存</p><h1 id="requests库"><a href="#requests库" class="headerlink" title="requests库"></a>requests库</h1><p>发送get请求</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">r = requests.get(&#x27;https://www.baidu.com&#x27;)</span><br></pre></td></tr></table></figure><p>添加参数</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">data=&#123;</span><br><span class="line">    &#x27;name&#x27;:&#x27;琪露诺&#x27;,</span><br><span class="line">    &#x27;age&#x27;:24</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">header = &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3&quot;,</span><br><span class="line">    &quot;Accept-Language&quot;: &quot;en-US,en;q=0.9&quot;,</span><br><span class="line">    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,</span><br><span class="line">    &quot;Referer&quot;: &quot;https://www.google.com&quot;,</span><br><span class="line">     &quot;Connection&quot;: &quot;keep-alive&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.get(&#x27;https://www.baidu.com&#x27;,params=data,headers=header)</span><br></pre></td></tr></table></figure><p>读取内容</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">response.encoding = &#x27;utf-8&#x27;</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure><h1 id="BeautifulSoup库"><a href="#BeautifulSoup库" class="headerlink" title="BeautifulSoup库"></a>BeautifulSoup库</h1><p>实例化BeautifulSoup对象</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">soup = BeautifulSoup(response.text, &#x27;lxml&#x27;) </span><br></pre></td></tr></table></figure><p>筛选需要的信息</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">items1 = soup.select(&quot;body&gt;div.layout.layout--728-250&gt;div.layout-left&gt;div.cc-content.service-area&gt;div.list.clearfix&gt;a&quot;)</span><br><span class="line">//返回set对象</span><br><span class="line"></span><br><span class="line">输出标签属性的几种方法</span><br><span class="line">for i in items1:</span><br><span class="line">    print(i.get(&#x27;href&#x27;))</span><br><span class="line">    print(i.get_text)</span><br></pre></td></tr></table></figure><h1 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from bs4 import BeautifulSoup as bs</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">for page in range(0,255,25):</span><br><span class="line">    url=&quot;https://movie.douban.com/top250?start=&#123;0&#125;&quot;.format(page)</span><br><span class="line">    #print(url)</span><br><span class="line"></span><br><span class="line">    ua=&#123;&#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36&#x27;&#125;</span><br><span class="line">    response=requests.get(url,headers=ua)</span><br><span class="line">    html_text=response.text</span><br><span class="line">    soup = bs(html_text, &#x27;lxml&#x27;)</span><br><span class="line">    soup_lists=soup.find_all(&#x27;div&#x27;, class_=&#x27;item&#x27;)</span><br><span class="line">    #print(len(soup_lists))</span><br><span class="line">    #排名-中文片名-评分-链接</span><br><span class="line">    for list in soup_lists:</span><br><span class="line">        rank = list.find_all(&#x27;em&#x27;)[0].get_text()</span><br><span class="line">        link = list.select(&#x27;div&#x27;)[0].select(&#x27;a&#x27;)[0].get(&quot;href&quot;)</span><br><span class="line">        title = list.select(&#x27;div&#x27;)[0].select(&#x27;a&#x27;)[0].select(&#x27;img&#x27;)[0].get(&quot;alt&quot;)</span><br><span class="line">        score = list.select(&#x27;div&#x27;)[1].select(&#x27;div&#x27;)[1].select(&#x27;div&#x27;)[0].select(&#x27;span&#x27;)[1].get_text()</span><br><span class="line">        print(rank, title, score, link)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> BeautifulSoup </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BeautifulSoup </tag>
+            
+            <tag> requests </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>jupyterhub安装教程</title>
       <link href="/posts/6e16/"/>
       <url>/posts/6e16/</url>

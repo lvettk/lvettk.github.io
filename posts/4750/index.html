@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>琪露诺也能看懂的爬虫教程 | lvettk的学习笔记</title><meta name="author" content="lvettk"><meta name="copyright" content="lvettk"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="先说思路用requests库下载网页文本文件-&gt;用BeautifulSoup筛选出有用的信息-&gt;保存 requests库发送get请求 r &#x3D; requests.get(&amp;#x27;https:&#x2F;&#x2F;www.baidu.com&amp;#x27;)  添加参数 data&#x3D;&amp;#123;    &amp;#x27;name&amp;#x27;:&amp;#x27;琪露诺&amp;#x27;,    &amp;#x27;age&amp;#x27;:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="琪露诺也能看懂的爬虫教程">
+<meta property="og:url" content="https://blog.gugugit.com/posts/4750/index.html">
+<meta property="og:site_name" content="lvettk的学习笔记">
+<meta property="og:description" content="先说思路用requests库下载网页文本文件-&gt;用BeautifulSoup筛选出有用的信息-&gt;保存 requests库发送get请求 r &#x3D; requests.get(&amp;#x27;https:&#x2F;&#x2F;www.baidu.com&amp;#x27;)  添加参数 data&#x3D;&amp;#123;    &amp;#x27;name&amp;#x27;:&amp;#x27;琪露诺&amp;#x27;,    &amp;#x27;age&amp;#x27;:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.gugugit.com/img/default_img.webp">
+<meta property="article:published_time" content="2024-06-13T07:13:30.000Z">
+<meta property="article:modified_time" content="2024-06-13T08:01:09.530Z">
+<meta property="article:author" content="lvettk">
+<meta property="article:tag" content="BeautifulSoup">
+<meta property="article:tag" content="requests">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.gugugit.com/img/default_img.webp"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://blog.gugugit.com/posts/4750/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d22aa59c6384f2720cc5e14d5917036";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EVR04LPTYP"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-EVR04LPTYP');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '琪露诺也能看懂的爬虫教程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-13 16:01:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/favicon.jpg" onerror="onerror=null;src='/img/loading.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_img.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="lvettk的学习笔记"><span class="site-name">lvettk的学习笔记</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">琪露诺也能看懂的爬虫教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-13T07:13:30.000Z" title="发表于 2024-06-13 15:13:30">2024-06-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-13T08:01:09.530Z" title="更新于 2024-06-13 16:01:09">2024-06-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/BeautifulSoup/">BeautifulSoup</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">417</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="琪露诺也能看懂的爬虫教程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="先说思路"><a href="#先说思路" class="headerlink" title="先说思路"></a>先说思路</h1><p>用requests库下载网页文本文件-&gt;用BeautifulSoup筛选出有用的信息-&gt;保存</p>
+<h1 id="requests库"><a href="#requests库" class="headerlink" title="requests库"></a>requests库</h1><p>发送get请求</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">r = requests.get(&#x27;https://www.baidu.com&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>添加参数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">data=&#123;</span><br><span class="line">    &#x27;name&#x27;:&#x27;琪露诺&#x27;,</span><br><span class="line">    &#x27;age&#x27;:24</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">header = &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3&quot;,</span><br><span class="line">    &quot;Accept-Language&quot;: &quot;en-US,en;q=0.9&quot;,</span><br><span class="line">    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,</span><br><span class="line">    &quot;Referer&quot;: &quot;https://www.google.com&quot;,</span><br><span class="line">     &quot;Connection&quot;: &quot;keep-alive&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.get(&#x27;https://www.baidu.com&#x27;,params=data,headers=header)</span><br></pre></td></tr></table></figure>
+
+<p>读取内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">response.encoding = &#x27;utf-8&#x27;</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<h1 id="BeautifulSoup库"><a href="#BeautifulSoup库" class="headerlink" title="BeautifulSoup库"></a>BeautifulSoup库</h1><p>实例化BeautifulSoup对象</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">soup = BeautifulSoup(response.text, &#x27;lxml&#x27;) </span><br></pre></td></tr></table></figure>
+
+<p>筛选需要的信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">items1 = soup.select(&quot;body&gt;div.layout.layout--728-250&gt;div.layout-left&gt;div.cc-content.service-area&gt;div.list.clearfix&gt;a&quot;)</span><br><span class="line">//返回set对象</span><br><span class="line"></span><br><span class="line">输出标签属性的几种方法</span><br><span class="line">for i in items1:</span><br><span class="line">    print(i.get(&#x27;href&#x27;))</span><br><span class="line">    print(i.get_text)</span><br></pre></td></tr></table></figure>
+
+<h1 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from bs4 import BeautifulSoup as bs</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">for page in range(0,255,25):</span><br><span class="line">    url=&quot;https://movie.douban.com/top250?start=&#123;0&#125;&quot;.format(page)</span><br><span class="line">    #print(url)</span><br><span class="line"></span><br><span class="line">    ua=&#123;&#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36&#x27;&#125;</span><br><span class="line">    response=requests.get(url,headers=ua)</span><br><span class="line">    html_text=response.text</span><br><span class="line">    soup = bs(html_text, &#x27;lxml&#x27;)</span><br><span class="line">    soup_lists=soup.find_all(&#x27;div&#x27;, class_=&#x27;item&#x27;)</span><br><span class="line">    #print(len(soup_lists))</span><br><span class="line">    #排名-中文片名-评分-链接</span><br><span class="line">    for list in soup_lists:</span><br><span class="line">        rank = list.find_all(&#x27;em&#x27;)[0].get_text()</span><br><span class="line">        link = list.select(&#x27;div&#x27;)[0].select(&#x27;a&#x27;)[0].get(&quot;href&quot;)</span><br><span class="line">        title = list.select(&#x27;div&#x27;)[0].select(&#x27;a&#x27;)[0].select(&#x27;img&#x27;)[0].get(&quot;alt&quot;)</span><br><span class="line">        score = list.select(&#x27;div&#x27;)[1].select(&#x27;div&#x27;)[1].select(&#x27;div&#x27;)[0].select(&#x27;span&#x27;)[1].get_text()</span><br><span class="line">        print(rank, title, score, link)</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.gugugit.com">lvettk</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.gugugit.com/posts/4750/">https://blog.gugugit.com/posts/4750/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.gugugit.com" target="_blank">lvettk的学习笔记</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/BeautifulSoup/">BeautifulSoup</a><a class="post-meta__tags" href="/tags/requests/">requests</a></div><div class="post_share"><div class="social-share" data-image="/img/default_img.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/6e16/" title="jupyterhub安装教程"><img class="cover" src="/img/loading.gif" data-original="/img/default_img.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">jupyterhub安装教程</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/favicon.jpg" onerror="this.onerror=null;this.src='/img/loading.gif'" alt="avatar"/></div><div class="author-info__name">lvettk</div><div class="author-info__description">咕咕咕</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lvettk"><i class="fab fa-github"></i><span>关注一下呗</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lvettk" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_37589067" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1330184308&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:1330184308@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">人生无处无思考</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%88%E8%AF%B4%E6%80%9D%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">先说思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#requests%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">requests库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BeautifulSoup%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">BeautifulSoup库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">4.</span> <span class="toc-text">一个简单的例子</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/4750/" title="琪露诺也能看懂的爬虫教程"><img src="/img/loading.gif" data-original="/img/default_img.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="琪露诺也能看懂的爬虫教程"/></a><div class="content"><a class="title" href="/posts/4750/" title="琪露诺也能看懂的爬虫教程">琪露诺也能看懂的爬虫教程</a><time datetime="2024-06-13T07:13:30.000Z" title="发表于 2024-06-13 15:13:30">2024-06-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6e16/" title="jupyterhub安装教程"><img src="/img/loading.gif" data-original="/img/default_img.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="jupyterhub安装教程"/></a><div class="content"><a class="title" href="/posts/6e16/" title="jupyterhub安装教程">jupyterhub安装教程</a><time datetime="2024-05-08T10:09:17.000Z" title="发表于 2024-05-08 18:09:17">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7562/" title="linux安装python教程"><img src="/img/loading.gif" data-original="/img/cover/24.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="linux安装python教程"/></a><div class="content"><a class="title" href="/posts/7562/" title="linux安装python教程">linux安装python教程</a><time datetime="2024-05-08T10:00:20.000Z" title="发表于 2024-05-08 18:00:20">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a76a/" title="Anconda的安装与配置"><img src="/img/loading.gif" data-original="/img/cover/21.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Anconda的安装与配置"/></a><div class="content"><a class="title" href="/posts/a76a/" title="Anconda的安装与配置">Anconda的安装与配置</a><time datetime="2024-05-01T06:50:25.000Z" title="发表于 2024-05-01 14:50:25">2024-05-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9537/" title="hexo教程"><img src="/img/loading.gif" data-original="/img/cover/12.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="hexo教程"/></a><div class="content"><a class="title" href="/posts/9537/" title="hexo教程">hexo教程</a><time datetime="2023-12-27T09:44:04.000Z" title="发表于 2023-12-27 17:44:04">2023-12-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default_img.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By lvettk</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><img src="/img/loading.gif" data-original="https://haiyong.site/img/icp.png"> <a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:white" target="_blank">ICP备案号2023053309</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.cutcutfish.org/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.cutcutfish.org/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.textContent = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="25px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
