@@ -4,7 +4,20 @@
   
     
     <entry>
-      <title>琪露诺也能看懂的爬虫教程</title>
+      <title>openvpn搭建教程</title>
+      <link href="/posts/7ea8/"/>
+      <url>/posts/7ea8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h1 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h1><p>Ubuntu24或centos stream 9（安装脚本只支持最新版系统）</p><h1 id="服务端部署"><a href="#服务端部署" class="headerlink" title="服务端部署"></a>服务端部署</h1><p>在 <a href="https://github.com/Nyr/openvpn-install">https://github.com/Nyr/openvpn-install</a> 下载openvpn-install.sh至服务器并运行</p><h1 id="客户端部署"><a href="#客户端部署" class="headerlink" title="客户端部署"></a>客户端部署</h1>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爬虫教程(简易版)</title>
       <link href="/posts/4750/"/>
       <url>/posts/4750/</url>
       
@@ -35,7 +48,7 @@
       <link href="/posts/6e16/"/>
       <url>/posts/6e16/</url>
       
-        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>JupyterHub是一个多用户的Jupyter Notebook服务器，允许多个用户同时使用Jupyter Notebook。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>本次使用conda安装，conda的安装教程<a href="https://blog.gugugit.com/posts/a76a/">这里有</a></p><h2 id="安装jupyterhub"><a href="#安装jupyterhub" class="headerlink" title="安装jupyterhub"></a>安装jupyterhub</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">conda install -c conda-forge jupyterhub  </span><br><span class="line">conda install notebook  </span><br></pre></td></tr></table></figure><h2 id="创建新环境并安装内核"><a href="#创建新环境并安装内核" class="headerlink" title="创建新环境并安装内核"></a>创建新环境并安装内核</h2><p>安装R语言</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge r-base</span><br></pre></td></tr></table></figure><h2 id="安装ipyparallel"><a href="#安装ipyparallel" class="headerlink" title="安装ipyparallel"></a>安装ipyparallel</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install -n jupyter ipyparallel</span><br></pre></td></tr></table></figure><h2 id="R安装iRkernel"><a href="#R安装iRkernel" class="headerlink" title="R安装iRkernel"></a>R安装iRkernel</h2><p>进入R语言并安装</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R</span><br><span class="line"></span><br><span class="line">install.packages(c(&#x27;repr&#x27;, &#x27;IRdisplay&#x27;, &#x27;IRkernel&#x27;), type = &#x27;source&#x27;,repos= &quot;https://mirrors.tuna.tsinghua.edu.cn/CRAN/&quot;)</span><br><span class="line"></span><br><span class="line">IRkernel::installspec()</span><br><span class="line"></span><br><span class="line">install.packages(&quot;IRkernel&quot;)</span><br><span class="line"></span><br><span class="line">IRkernel::installspec(name = &#x27;ir40&#x27;, displayname = &#x27;R 4.0&#x27;, user = F)</span><br></pre></td></tr></table></figure><h1 id="启动并配置jupyterhub"><a href="#启动并配置jupyterhub" class="headerlink" title="启动并配置jupyterhub"></a>启动并配置jupyterhub</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#找个地方存放jupyterhub的config</span><br><span class="line"></span><br><span class="line">cd /opt</span><br><span class="line"></span><br><span class="line">#创建默认config</span><br><span class="line"></span><br><span class="line">jupyterhub --generate-config</span><br><span class="line"></span><br><span class="line">#配置config</span><br><span class="line"></span><br><span class="line">vim jupyterhub_config.py</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>config改为</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c.Spawner.notebook_dir = &#x27;~&#x27;</span><br><span class="line">c.Spawner.default_url = &#x27;/lab&#x27;</span><br><span class="line">c.Spawner.args = [&#x27;--allow-root&#x27;] </span><br><span class="line">c.Authenticator.allow_all = True</span><br><span class="line">c.JupyterHub.ip = &#x27;0.0.0.0&#x27;</span><br><span class="line">c.JupyterHub.port = 8000</span><br><span class="line">c.PAMAuthenticator.encoding = &#x27;utf8&#x27;</span><br><span class="line"></span><br><span class="line">#拥有管理员权限的用户</span><br><span class="line">c.Authenticator.admin_users = set([&#x27;xjy&#x27;])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>JupyterHub是一个多用户的Jupyter Notebook服务器，允许多个用户同时使用Jupyter Notebook。你可以在服务器上安装jupyterhub并添加python、R语言等内核并通过网页访问。</p><p>优点：</p><p>-节省本地空间，不必把本地环境搞得乱七八糟</p><p>-24小时运行爬虫程序或训练模型</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>本次使用conda安装，conda的安装教程<a href="https://blog.gugugit.com/posts/a76a/">这里有</a></p><h2 id="安装jupyterhub"><a href="#安装jupyterhub" class="headerlink" title="安装jupyterhub"></a>安装jupyterhub</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">conda install -c conda-forge jupyterhub  </span><br><span class="line">conda install notebook  </span><br></pre></td></tr></table></figure><h2 id="创建新环境并安装内核"><a href="#创建新环境并安装内核" class="headerlink" title="创建新环境并安装内核"></a>创建新环境并安装内核</h2><p>安装R语言</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge r-base</span><br></pre></td></tr></table></figure><h2 id="安装ipyparallel"><a href="#安装ipyparallel" class="headerlink" title="安装ipyparallel"></a>安装ipyparallel</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install -n jupyter ipyparallel</span><br></pre></td></tr></table></figure><h2 id="R安装iRkernel"><a href="#R安装iRkernel" class="headerlink" title="R安装iRkernel"></a>R安装iRkernel</h2><p>进入R语言并安装</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R</span><br><span class="line"></span><br><span class="line">install.packages(c(&#x27;repr&#x27;, &#x27;IRdisplay&#x27;, &#x27;IRkernel&#x27;), type = &#x27;source&#x27;,repos= &quot;https://mirrors.tuna.tsinghua.edu.cn/CRAN/&quot;)</span><br><span class="line"></span><br><span class="line">IRkernel::installspec()</span><br><span class="line"></span><br><span class="line">install.packages(&quot;IRkernel&quot;)</span><br><span class="line"></span><br><span class="line">IRkernel::installspec(name = &#x27;ir40&#x27;, displayname = &#x27;R 4.0&#x27;, user = F)</span><br></pre></td></tr></table></figure><h1 id="启动并配置jupyterhub"><a href="#启动并配置jupyterhub" class="headerlink" title="启动并配置jupyterhub"></a>启动并配置jupyterhub</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#找个地方存放jupyterhub的config</span><br><span class="line"></span><br><span class="line">cd /opt</span><br><span class="line"></span><br><span class="line">#创建默认config</span><br><span class="line"></span><br><span class="line">jupyterhub --generate-config</span><br><span class="line"></span><br><span class="line">#配置config</span><br><span class="line"></span><br><span class="line">vim jupyterhub_config.py</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>config改为</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c.Spawner.notebook_dir = &#x27;~&#x27;</span><br><span class="line">c.Spawner.default_url = &#x27;/lab&#x27;</span><br><span class="line">c.Spawner.args = [&#x27;--allow-root&#x27;] </span><br><span class="line">c.Authenticator.allow_all = True</span><br><span class="line">c.JupyterHub.ip = &#x27;0.0.0.0&#x27;</span><br><span class="line">c.JupyterHub.port = 8000</span><br><span class="line">c.PAMAuthenticator.encoding = &#x27;utf8&#x27;</span><br><span class="line"></span><br><span class="line">#拥有管理员权限的用户</span><br><span class="line">c.Authenticator.admin_users = set([&#x27;xjy&#x27;])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -227,33 +240,6 @@
             <tag> 理财 </tag>
             
             <tag> 基金 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>从零开始的异世界算法（1月20日开更）</title>
-      <link href="/posts/d57e/"/>
-      <url>/posts/d57e/</url>
-      
-        <content type="html"><![CDATA[<p>备战2024acm</p><details><summary>呜呜呜</summary><s>我tm杀杀杀</s></details><hr><h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h2 id="Floyd"><a href="#Floyd" class="headerlink" title="Floyd"></a>Floyd</h2><p><a href="https://www.luogu.com.cn/problem/B3647">B3647 【模板】Floyd </a></p><h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p><a href="https://www.luogu.com.cn/problem/P3367">P3367 【模板】并查集 </a></p><h2 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h2><p><a href="https://www.luogu.com.cn/problem/P8306">P8306 【模板】字典树  </a></p><h1 id="分块打表"><a href="#分块打表" class="headerlink" title="分块打表"></a>分块打表</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-            <tag> 模板 </tag>
             
         </tags>
       
