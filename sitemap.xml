@@ -281,27 +281,6 @@
 
   
   <url>
-    <loc>https://blog.gugugit.com/tags/CSS/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/HTML/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/Anconda/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.gugugit.com/tags/hexo/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -323,6 +302,34 @@
   </url>
   
   <url>
+    <loc>https://blog.gugugit.com/tags/Anconda/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/JavaScript/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/CSS/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/HTML/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.gugugit.com/tags/hadoop/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -331,13 +338,6 @@
   
   <url>
     <loc>https://blog.gugugit.com/tags/MapReduce/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/JavaScript/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -372,13 +372,6 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/tags/Ubuntu/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.gugugit.com/tags/windows/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -394,6 +387,13 @@
   
   <url>
     <loc>https://blog.gugugit.com/tags/smb/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/Ubuntu/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -428,6 +428,13 @@
   </url>
   
   <url>
+    <loc>https://blog.gugugit.com/tags/python/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.gugugit.com/tags/jupyterhub/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -435,7 +442,14 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/tags/python/</loc>
+    <loc>https://blog.gugugit.com/tags/vi/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/tags/vim/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -457,20 +471,6 @@
   
   <url>
     <loc>https://blog.gugugit.com/tags/%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/vi/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gugugit.com/tags/vim/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -549,7 +549,7 @@
 
   
   <url>
-    <loc>https://blog.gugugit.com/categories/HTML/</loc>
+    <loc>https://blog.gugugit.com/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -563,7 +563,14 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/categories/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://blog.gugugit.com/categories/JavaScript/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.gugugit.com/categories/HTML/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -577,13 +584,6 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/categories/JavaScript/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.gugugit.com/categories/linux/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -591,14 +591,14 @@
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/categories/Ubuntu/</loc>
+    <loc>https://blog.gugugit.com/categories/windows/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.gugugit.com/categories/windows/</loc>
+    <loc>https://blog.gugugit.com/categories/Ubuntu/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
