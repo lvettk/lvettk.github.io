@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>证书申请教程</title>
+      <link href="/posts/1f7d/"/>
+      <url>/posts/1f7d/</url>
+      
+        <content type="html"><![CDATA[<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul><li>一台linux服务器</li><li>一个dns域名</li></ul><h1 id="Let’s-Encrypt"><a href="#Let’s-Encrypt" class="headerlink" title="Let’s Encrypt"></a>Let’s Encrypt</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安装 snap</span><br><span class="line">sudo apt install snap  -y</span><br><span class="line">sudo snap install core</span><br><span class="line">sudo snap refresh core</span><br><span class="line"></span><br><span class="line"># 通过 snap 安装 certbot</span><br><span class="line">sudo snap install --classic certbot</span><br><span class="line"># 创建软连接，避免 sudo 下找不到命令</span><br><span class="line">sudo ln -s /snap/bin/certbot /usr/bin/certbot</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#申请证书</span><br><span class="line">sudo certbot certonly --manual --preferred-challenges=dns --server https://acme-v02.api.letsencrypt.org/directory --agree-tos -d &quot;你的域名&quot;</span><br></pre></td></tr></table></figure><p><strong>参数解释</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">certonly: 仅获取证书，不尝试安装。</span><br><span class="line">--manual: 手动模式，需手动执行一些步骤，例如添加 DNS 记录。</span><br><span class="line">--preferred-challenges=dns: 使用 DNS 验证域名所有权。</span><br><span class="line">--server: 指定 ACME 服务器的 URL。</span><br><span class="line">--agree-tos: 同意服务条款。</span><br><span class="line">-d: 指定获取证书的域名。</span><br></pre></td></tr></table></figure><p>然后按照他的提示在你的域名服务商添加TXT类型解析</p><hr><p>END~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> http </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Let’s Encrypt </tag>
+            
+            <tag> ssl </tag>
+            
+            <tag> 证书 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hadoop电商项目</title>
       <link href="/posts/a2b4/"/>
       <url>/posts/a2b4/</url>
